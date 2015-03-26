@@ -51,7 +51,21 @@ public class InfluenceDiagram {
 				aCommercialEventDef[2+i+1] = p.getCommercialEventRateLowOdds();
 				aScandalDef[2*i] = p.getScandalWillAppearOdds();
 				aScandalDef[2*i+1] = p.getScandalWillNotAppearOdds();
-				
+				if(p.getPersonalAbility()=="Outstanding"){
+					aPersonalAbilityDef[5*i] = 1;
+				}
+				else if(p.getPersonalAbility()=="Excellent"){
+					aPersonalAbilityDef[5*i+1] = 1;
+				}
+				else if (p.getPersonalAbility()=="Good"){
+					aPersonalAbilityDef[5*i+2] = 1;
+				}
+				else if (p.getPersonalAbility()=="Average"){
+					aPersonalAbilityDef[5*i+3] = 1;
+				}
+				else if (p.getPersonalAbility()=="Below_Average"){
+					aPersonalAbilityDef[5*i+4] = 1;
+				}
 				
 			}					
 			net.deleteOutcome("Player", 0);
@@ -108,10 +122,7 @@ public class InfluenceDiagram {
 			net.addArc("Future Game Performance", "Total Expected Value");
 			net.addArc("Future Social Performance", "Total Expected Value");
 			net.setNodeDefinition("Total Expected Value", aTotalExpectedValueDef);
-			
-			
-			
-			
+						
 			
 			
 			   
