@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 
 import smile.Network;
 import smile.SMILEException;
@@ -9,18 +10,19 @@ public class InfluenceDiagram {
 	public void constructDiagram(List<Player> playerList){
 		try {
 			Network net = new Network();
+			Random generator = new Random();
 			
 			net.addNode(Network.NodeType.List, "Player");
-			net.addNode(Network.NodeType.Cpt, "Tactic Agreement");
+			net.addNode(Network.NodeType.Cpt, "Tactic_Agreement");
 			net.addNode(Network.NodeType.Cpt, "Injury");
-			net.addNode(Network.NodeType.TruthTable, "Personal Ability");
-			net.addNode(Network.NodeType.Cpt, "Future Game Performance");
+			net.addNode(Network.NodeType.TruthTable, "Personal_Ability");
+			net.addNode(Network.NodeType.Cpt, "Future_Game_Performance");
 			
-			net.addNode(Network.NodeType.Cpt, "Commercial Event");
+			net.addNode(Network.NodeType.Cpt, "Commercial_Event");
 			net.addNode(Network.NodeType.Cpt, "Scandal");
-			net.addNode(Network.NodeType.Cpt, "Future Social Performance");
+			net.addNode(Network.NodeType.Cpt, "Future_Social_Performance");
 			
-			net.addNode(Network.NodeType.Table, "Total Expected Value");
+			net.addNode(Network.NodeType.Table, "Total_Expected_Value");
 			
 			int length = playerList.size();
 			
@@ -30,13 +32,31 @@ public class InfluenceDiagram {
 			for(int i=0; i<aPersonalAbilityDef.length; i++){
 				aPersonalAbilityDef[i] = 0;
 			}
-			double[] aFutureGamePerformanceDef = {};
+			//double[] aFutureGamePerformanceDef = {};
+			double[] aFutureGamePerformanceDef = new double[60];
+			for(int i=0; i<60; i++){
+				if((i+1)%3==0){
+					aFutureGamePerformanceDef[i] = 1-aFutureGamePerformanceDef[i-1]-aFutureGamePerformanceDef[i-2];
+				}
+				else{
+					aFutureGamePerformanceDef[i] = generator.nextDouble()*(0.5);
+				}
+			}
 			
 			double[] aCommercialEventDef = new double[2*length];
 			double[] aScandalDef = new double[2*length];
-			double[] aFutureSocialPerformanceDef = {};
+			//double[] aFutureSocialPerformanceDef = {};
+			double[] aFutureSocialPerformanceDef = new double[12];
+			for(int i=0; i<12; i++){
+				if((i+1)%3==0){
+					aFutureSocialPerformanceDef[i] = 1-aFutureSocialPerformanceDef[i-1]-aFutureSocialPerformanceDef[i-2];
+				}
+				else{
+					aFutureSocialPerformanceDef[i] = generator.nextDouble()*(0.5);
+				}
+			}
 			
-			double[] aTotalExpectedValueDef = {};
+			double[] aTotalExpectedValueDef = {1000,500,200,500,200,100,200,100,50};
 			
 			Player p;
 			
@@ -47,8 +67,8 @@ public class InfluenceDiagram {
 				aTacticAgreementDef[2*i+1] = p.getTacitBadOdds();
 				aInjuryDef[2*i] = p.getInjuryOdds();
 				aInjuryDef[2*i+1] = p.getNotInjueryOdds();
-				aCommercialEventDef[2+i] = p.getCommercialEventRateHighOdds();
-				aCommercialEventDef[2+i+1] = p.getCommercialEventRateLowOdds();
+				aCommercialEventDef[2*i] = p.getCommercialEventRateHighOdds();
+				aCommercialEventDef[2*i+1] = p.getCommercialEventRateLowOdds();
 				aScandalDef[2*i] = p.getScandalWillAppearOdds();
 				aScandalDef[2*i+1] = p.getScandalWillNotAppearOdds();
 				if(p.getPersonalAbility()=="Outstanding"){
@@ -71,61 +91,72 @@ public class InfluenceDiagram {
 			net.deleteOutcome("Player", 0);
 			net.deleteOutcome("Player", 0);
 			
-			net.setOutcomeId("Tactic Agreement", 0, "Good");
-			net.setOutcomeId("Tactic Agreement", 1, "Bad");
+			net.setOutcomeId("Tactic_Agreement", 0, "Good");
+			net.setOutcomeId("Tactic_Agreement", 1, "Bad");
 			
 			net.setOutcomeId("Injury", 0, "Yes");
 			net.setOutcomeId("Injury", 1, "No");
 			
-			net.setOutcomeId("Personal Ability", 0, "Outstanding");
-			net.setOutcomeId("Personal Ability", 1, "Excellent");
-			net.setOutcomeId("Personal Ability", 2, "Good");
-			net.setOutcomeId("Personal Ability", 3, "Average");
-			net.setOutcomeId("Personal Ability", 4, "Below Average");
+			net.setOutcomeId("Personal_Ability", 0, "Outstanding");
+			net.setOutcomeId("Personal_Ability", 1, "Excellent");
+			net.addOutcome("Personal_Ability", "Good");
+			net.addOutcome("Personal_Ability", "Average");
+			net.addOutcome("Personal_Ability", "Below_Average");
+
 			
-			net.setOutcomeId("Future Game Performance", 0, "Good");
-			net.setOutcomeId("Future Game Performance", 1, "Fair");
-			net.setOutcomeId("Future Game Performance", 2, "Poor");
+			net.setOutcomeId("Future_Game_Performance", 0, "Good");
+			net.setOutcomeId("Future_Game_Performance", 1, "Fair");
+			net.addOutcome("Future_Game_Performance", "Poor");
+
 			
-			net.setOutcomeId("Commercial Event", 0, "Rate_High");
-			net.setOutcomeId("Commercial Event", 1, "Rate_Low");
+			net.setOutcomeId("Commercial_Event", 0, "Rate_High");
+			net.setOutcomeId("Commercial_Event", 1, "Rate_Low");
 			
 			net.setOutcomeId("Scandal", 0, "Will_Appear");
 			net.setOutcomeId("Scandal", 1, "Will_Not_Appear");
 			
-			net.setOutcomeId("Future Social Performance", 0, "Good");
-			net.setOutcomeId("Future Social Performance", 0, "Fair");
-			net.setOutcomeId("Future Social Performance", 0, "Poor");
+			net.setOutcomeId("Future_Social_Performance", 0, "Good");
+			net.setOutcomeId("Future_Social_Performance", 1, "Fair");
+			net.addOutcome("Future_Social_Performance", "Poor");
 			
-			net.addArc("Player", "Tactic Agreement");
-			net.setNodeDefinition("Tactic Agreement", aTacticAgreementDef);
+			net.addArc("Player", "Tactic_Agreement");
+			net.setNodeDefinition("Tactic_Agreement", aTacticAgreementDef);
 			net.addArc("Player", "Injury");
 			net.setNodeDefinition("Injury", aInjuryDef);
-			net.addArc("Player", "Personal Ability");
-			net.setNodeDefinition("Personal Ability", aPersonalAbilityDef);
+			net.addArc("Player", "Personal_Ability");
+			net.setNodeDefinition("Personal_Ability", aPersonalAbilityDef);
 			
 			
-			net.addArc("Player", "Commercial Event");
-			net.setNodeDefinition("Commercial Event", aCommercialEventDef);
+			net.addArc("Player", "Commercial_Event");
+			net.setNodeDefinition("Commercial_Event", aCommercialEventDef);
 			net.addArc("Player", "Scandal");
 			net.setNodeDefinition("Scandal", aScandalDef);
 			
-			net.addArc("Tactic Agreement", "Future Game Performance");
-			net.addArc("Injury", "Future Game Performance");
-			net.addArc("Personal Ability", "Future Game Performance");
-			net.setNodeDefinition("Future Game Performance", aFutureGamePerformanceDef);
+			net.addArc("Tactic_Agreement", "Future_Game_Performance");
+			net.addArc("Injury", "Future_Game_Performance");
+			net.addArc("Personal_Ability", "Future_Game_Performance");
+			net.setNodeDefinition("Future_Game_Performance", aFutureGamePerformanceDef);
 			
-			net.addArc("Commercial Event", "Future Social Performance");
-			net.addArc("Scandal", "Future Social Performance");
-			net.setNodeDefinition("Future Social Performance", aFutureSocialPerformanceDef);
+			net.addArc("Commercial_Event", "Future_Social_Performance");
+			net.addArc("Scandal", "Future_Social_Performance");
+			net.setNodeDefinition("Future_Social_Performance", aFutureSocialPerformanceDef);
 			
-			net.addArc("Future Game Performance", "Total Expected Value");
-			net.addArc("Future Social Performance", "Total Expected Value");
-			net.setNodeDefinition("Total Expected Value", aTotalExpectedValueDef);
-						
+			net.addArc("Future_Game_Performance", "Total_Expected_Value");
+			net.addArc("Future_Social_Performance", "Total_Expected_Value");
+			net.setNodeDefinition("Total_Expected_Value", aTotalExpectedValueDef);
 			
+			net.writeFile("Influence Diagram auto.xdsl");
 			
-			   
+			net.updateBeliefs();
+			
+			for (int i = 0; i < net.getOutcomeCount("Player"); i++) {
+				String parentOutcomeId = net.getOutcomeId("Player", i);
+				double expectedUtility = net.getNodeValue("Total_Expected_Value")[i];
+				     
+				System.out.print("  - \"Player\" = " + parentOutcomeId + ": ");
+				System.out.println("Expected Utility = " + expectedUtility);
+			}
+															   
 		}
 		catch (SMILEException e) {
 			   System.out.println(e.getMessage());
