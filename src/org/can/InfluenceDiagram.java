@@ -1,3 +1,5 @@
+package org.can;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -7,8 +9,10 @@ import smile.SMILEException;
 
 public class InfluenceDiagram {
 	
-	public void constructDiagram(List<Player> playerList){
+	public HashMap<String, Double> constructDiagram(List<Player> playerList, double weight){
+		HashMap<String, Double> res = new HashMap<String, Double>();
 		try {
+			
 			Network net = new Network();
 			Random generator = new Random();
 			
@@ -55,8 +59,20 @@ public class InfluenceDiagram {
 					aFutureSocialPerformanceDef[i] = generator.nextDouble()*(0.5);
 				}
 			}
+			double goodValueSum = 4000;
+			double fairValueSum = 2000;
+			double poorValueSum = 1000;
+			double goodGP = goodValueSum*weight;
+			double goodSP = goodValueSum*(1-weight);
+			double fairGP = fairValueSum*weight;
+			double fairSP = fairValueSum*(1-weight);
+			double poorGP = poorValueSum*weight;
+			double poorSP = poorValueSum*(1-weight);
+
 			
-			double[] aTotalExpectedValueDef = {1000,500,200,500,200,100,200,100,50};
+			
+			
+			double[] aTotalExpectedValueDef = {goodGP+goodSP,goodGP+fairSP,goodGP+poorSP,fairGP+goodSP,fairGP+fairSP,fairGP+poorSP,poorGP+goodSP,poorGP+fairSP,poorGP+poorSP};
 			
 			Player p;
 			
@@ -152,15 +168,17 @@ public class InfluenceDiagram {
 			for (int i = 0; i < net.getOutcomeCount("Player"); i++) {
 				String parentOutcomeId = net.getOutcomeId("Player", i);
 				double expectedUtility = net.getNodeValue("Total_Expected_Value")[i];
+				res.put(parentOutcomeId, expectedUtility);
 				     
-				System.out.print("  - \"Player\" = " + parentOutcomeId + ": ");
-				System.out.println("Expected Utility = " + expectedUtility);
+				//System.out.print("  - \"Player\" = " + parentOutcomeId + ": ");
+				//System.out.println("Expected Utility = " + expectedUtility);
 			}
-															   
+				
+			
 		}
 		catch (SMILEException e) {
 			   System.out.println(e.getMessage());
 		}
-		
+		return res;
 	}
 }

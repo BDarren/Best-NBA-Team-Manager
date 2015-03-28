@@ -1,9 +1,9 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.util.List" %>
+<%@ page import="org.can.DBConnection"%>
+<%@ page import="org.can.Player"%>
 <html>
 <head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -45,83 +45,42 @@
         
       </div>
     </div>
-<div class="container marketing">
-
-  <!-- Three columns of text below the carousel -->
-    <h1>
-        Step 1: Choose palyers to compare  
-      </h1>
-      <br/>
-  <form name="choosePlayers" action="SimpleServletPath" method="post">
-  <div class="row">
-
-<%@page import="org.can.DBConnection"%>
-<%@page import="org.can.Player"%>
-<%
-DBConnection player=new DBConnection("SELECT name FROM players");
-ResultSet rs=player.getData();
-
-try{
-	while(rs.next()){
-	String name=rs.getString("name");
-    out.print("<tr>");
-    
-    %>
-    <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
-      
-    <div class="checkbox">
-      <label><input type="checkbox" value=<%out.print(name);%> name="player" ></label>
-      <h2><%out.print(name); %></h2>
-      <br>
-    </div>
-    </div>
-    <% 
-    out.print("</tr>");
-    
-    }
-}catch (SQLException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-
-  player.close();
-
-%>
-  </div> 
-  <h1>
-        Step 2: Specify weights for performance:     
-      </h1>
-      <br/>
-  <div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Game performance</span>
-  <input type="text" name="gamep" class="form-control" placeholder="Weight" aria-describedby="basic-addon1">
-</div>
-<br/>
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Social performance</span>
-  <input type="text" name="socialp" class="form-control" placeholder="Weight" aria-describedby="basic-addon1">
-</div>
-   
-  <br/>  
-   <button type="submit" class="btn btn-default">Submit</button></a>
-
-
+<div class="container">
+  <h2>Comparison</h2> 
+  <form name="setWeight" action="Weight" method="post">        
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>InjuryOdds</th>
+        <th>TacticGoodOdds</th>
+        <th>PersonalAbility</th>
+        <th>CommercialEventsRateHighOdds</th>
+        <th>ScandalWillAppearOdds</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+    <% List<Player> players  = (List<Player>)request.getAttribute("playerList");
+			for(Player e: players){%>
+      <tr>
+        <td><%=e.getName() %></td>
+        <td><%=e.getInjuryOdds() %></td>
+        <td><%=e.getTacticGoodOdds() %></td>
+        <td><%=e.getPersonalAbility() %></td>
+        <td><%=e.getCommercialEventRateHighOdds() %></td>
+        <td><%=e.getScandalWillAppearOdds() %></td>
+        
+        
+      </tr>
+      <% 
+			}
+		%>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-default">Show results</button></a>
   </form>
 </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

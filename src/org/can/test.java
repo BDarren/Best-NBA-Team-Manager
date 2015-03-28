@@ -1,5 +1,7 @@
+package org.can;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import smile.Network;
@@ -17,7 +19,7 @@ public class test {
 		list.add(kobe);
 		
 		InfluenceDiagram id = new InfluenceDiagram();
-		id.constructDiagram(list);
+		HashMap<String, Double> res = id.constructDiagram(list, 0.5);
 
 	}
 }
