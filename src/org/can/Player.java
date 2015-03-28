@@ -7,14 +7,16 @@ public class Player {
 	private String personalAbility;
 	private double commercialEventsRateHighOdds;
 	private double scandalWillAppearOdds;
+	private String position;
 	
-	public Player(String name, double io, double tgo, String pa, double cerh, double swao){
+	public Player(String name, double io, double tgo, String pa, double cerh, double swao, String po){
 		this.name = name;
 		this.injuryOdds = io;
 		this.tacticGoodOdds = tgo;
 		this.personalAbility = pa;
 		this.commercialEventsRateHighOdds = cerh;
 		this.scandalWillAppearOdds = swao;
+		this.position = po;
 	}
 	
 	public String getName(){
@@ -57,6 +59,8 @@ public class Player {
 		return 1-this.scandalWillAppearOdds;
 	}
 	
-	
+	public String getPosition(){
+		return this.position;
+	}
 
 }

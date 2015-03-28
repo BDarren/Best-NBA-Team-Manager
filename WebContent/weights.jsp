@@ -15,10 +15,14 @@
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/bootstrap-table.min.css">
+		<script src="js/bootstrap-table.min.js"></script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="css/styles.css" rel="stylesheet">
+		<!-- Latest compiled and minified CSS -->
+
     <link href="css/jumbotron.css" rel="stylesheet">
 	</head>
 <body>
@@ -51,16 +55,17 @@
 <div class="container">
   <h2>Comparison</h2> 
   <form name="setWeight" action="Weight" method="post">        
-  <table class="table table-striped">
+  <table class="table table-striped"  data-sort-name="name" data-sort-order="desc">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>InjuryOdds</th>
-        <th>TacticGoodOdds</th>
-        <th>PersonalAbility</th>
-        <th>CommercialEventsRateHighOdds</th>
-        <th>ScandalWillAppearOdds</th>
-        <th>Score</th>
+        <th data-sortable="true">Name</th>
+        <th data-sortable="true"> InjuryOdds</th>
+        <th data-sortable="true">TacticGoodOdds</th>
+        <th data-sortable="true">PersonalAbility</th>
+        <th data-sortable="true">CommercialEventsRateHighOdds</th>
+        <th data-sortable="true">ScandalWillAppearOdds</th>
+        <th data-sortable="true">Position</th>
+        <th data-sortable="true">Score</th>
         
       </tr>
     </thead>
@@ -75,6 +80,7 @@
         <td><%=e.getPersonalAbility() %></td>
         <td><%=e.getCommercialEventRateHighOdds() %></td>
         <td><%=e.getScandalWillAppearOdds() %></td>
+        <td><%=e.getPosition() %></td>
         <td><%=score.get(e.getName()) %></td>
         
         

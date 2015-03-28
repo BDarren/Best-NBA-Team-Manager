@@ -50,7 +50,7 @@ public class SelectServlet extends HttpServlet {
 				ResultSet info=playerInfo.getData();
 				try {
 					while(info.next()){
-						Player person=new Player(info.getString("name"),info.getDouble("injuryOdds"),info.getDouble("tacticGoodOdds"),info.getString("personalAbility"),info.getDouble("commercialEventsRateHighOdds"),info.getDouble("scandalWillAppearOdds"));
+						Player person=new Player(info.getString("name"),info.getDouble("injuryOdds"),info.getDouble("tacticGoodOdds"),info.getString("personalAbility"),info.getDouble("commercialEventsRateHighOdds"),info.getDouble("scandalWillAppearOdds"),info.getString("position"));
 						playerList.add(person);
 						//System.out.println(person.getNotInjueryOdds());
 					}
@@ -67,9 +67,6 @@ public class SelectServlet extends HttpServlet {
 		request.setAttribute("score", res); 
 		RequestDispatcher rd = request.getRequestDispatcher("weights.jsp");
 		rd.forward(request, response);
-
-		//InfluenceDiagram id= new InfluenceDiagram();
-		//id.constructDiagram(playerList,gameWeight);
 		
 
 		

@@ -58,7 +58,8 @@
 <%@page import="org.can.DBConnection"%>
 <%@page import="org.can.Player"%>
 <%
-DBConnection player=new DBConnection("SELECT name FROM players");
+String position=request.getParameter("item");
+DBConnection player=new DBConnection("SELECT name FROM Players where position='"+position+"'");
 ResultSet rs=player.getData();
 
 try{
