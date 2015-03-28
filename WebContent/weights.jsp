@@ -15,8 +15,24 @@
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/bootstrap-table.min.css">
-		<script src="js/bootstrap-table.min.js"></script>
+		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+		<link rel="stylesheet" type="text/css" href="/media/css/site.css?_=49e03a77423748a3bf40c035be088f3b">
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+			
+		<script type="text/javascript" src="/media/js/site.js?_=1b28ecea55524280aab311976b223951"></script>
+		<script type="text/javascript" src="/media/js/dynamic.php?comments-page=examples%2Fstyling%2Fbootstrap.html" async=""></script>
+		<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" language="javascript" src="../resources/demo.js"></script>
+		<script type="text/javascript" class="init">
+
+	$(document).ready(function() {
+		$('#example').dataTable();
+	} );
+
+		</script>
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -55,17 +71,17 @@
 <div class="container">
   <h2>Comparison</h2> 
   <form name="setWeight" action="Weight" method="post">        
-  <table class="table table-striped"  data-sort-name="name" data-sort-order="desc">
+  <table  id="example" class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th data-sortable="true">Name</th>
-        <th data-sortable="true"> InjuryOdds</th>
-        <th data-sortable="true">TacticGoodOdds</th>
-        <th data-sortable="true">PersonalAbility</th>
-        <th data-sortable="true">CommercialEventsRateHighOdds</th>
-        <th data-sortable="true">ScandalWillAppearOdds</th>
-        <th data-sortable="true">Position</th>
-        <th data-sortable="true">Score</th>
+        <th>Name</th>
+        <th> InjuryOdds</th>
+        <th>TacticGoodOdds</th>
+        <th>PersonalAbility</th>
+        <th>CommercialEventsRateHighOdds</th>
+        <th>ScandalWillAppearOdds</th>
+        <th>Position</th>
+        <th>Score</th>
         
       </tr>
     </thead>
