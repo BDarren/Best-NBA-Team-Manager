@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -61,6 +62,9 @@ public class SelectServlet extends HttpServlet {
 			
 		}
 		request.setAttribute("playerList", playerList); 
+		InfluenceDiagram id = new InfluenceDiagram();
+		HashMap<String, Double> res = id.constructDiagram(playerList, gameWeight);
+		request.setAttribute("score", res); 
 		RequestDispatcher rd = request.getRequestDispatcher("weights.jsp");
 		rd.forward(request, response);
 

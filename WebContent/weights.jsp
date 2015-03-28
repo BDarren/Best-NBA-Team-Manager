@@ -4,6 +4,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.can.DBConnection"%>
 <%@ page import="org.can.Player"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="smile.SMILEException"%>
+<%@ page import="smile.Network"%>
 <html>
 <head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -57,11 +60,13 @@
         <th>PersonalAbility</th>
         <th>CommercialEventsRateHighOdds</th>
         <th>ScandalWillAppearOdds</th>
+        <th>Score</th>
         
       </tr>
     </thead>
     <tbody>
     <% List<Player> players  = (List<Player>)request.getAttribute("playerList");
+    	HashMap<String, Double> score = (HashMap<String, Double>)request.getAttribute("score");
 			for(Player e: players){%>
       <tr>
         <td><%=e.getName() %></td>
@@ -70,6 +75,7 @@
         <td><%=e.getPersonalAbility() %></td>
         <td><%=e.getCommercialEventRateHighOdds() %></td>
         <td><%=e.getScandalWillAppearOdds() %></td>
+        <td><%=score.get(e.getName()) %></td>
         
         
       </tr>

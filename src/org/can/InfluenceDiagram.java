@@ -87,19 +87,20 @@ public class InfluenceDiagram {
 				aCommercialEventDef[2*i+1] = p.getCommercialEventRateLowOdds();
 				aScandalDef[2*i] = p.getScandalWillAppearOdds();
 				aScandalDef[2*i+1] = p.getScandalWillNotAppearOdds();
-				if(p.getPersonalAbility()=="Outstanding"){
+				String PA = p.getPersonalAbility();
+				if(PA.equals("Outstanding")){
 					aPersonalAbilityDef[5*i] = 1;
 				}
-				else if(p.getPersonalAbility()=="Excellent"){
+				else if(PA.equals("Excellent")){
 					aPersonalAbilityDef[5*i+1] = 1;
 				}
-				else if (p.getPersonalAbility()=="Good"){
+				else if (PA.equals("Good")){
 					aPersonalAbilityDef[5*i+2] = 1;
 				}
-				else if (p.getPersonalAbility()=="Average"){
+				else if (PA.equals("Average")){
 					aPersonalAbilityDef[5*i+3] = 1;
 				}
-				else if (p.getPersonalAbility()=="Below_Average"){
+				else if (PA.equals("Below_Average")){
 					aPersonalAbilityDef[5*i+4] = 1;
 				}
 				
