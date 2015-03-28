@@ -106,7 +106,6 @@
 		%>
     </tbody>
   </table>
-  <button type="submit" class="btn btn-default">Show results</button></a>
   </form>
 </div>
 
