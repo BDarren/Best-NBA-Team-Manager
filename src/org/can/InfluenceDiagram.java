@@ -162,7 +162,7 @@ public class InfluenceDiagram {
 			net.addArc("Future_Social_Performance", "Total_Expected_Value");
 			net.setNodeDefinition("Total_Expected_Value", aTotalExpectedValueDef);
 			
-			net.writeFile("Influence Diagram auto.xdsl");
+			//net.writeFile("Influence Diagram auto.xdsl");
 			
 			net.updateBeliefs();
 			

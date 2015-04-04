@@ -59,7 +59,7 @@
 <%@page import="org.can.Player"%>
 <%
 String position=request.getParameter("item");
-DBConnection player=new DBConnection("SELECT name FROM Players where position='"+position+"'");
+DBConnection player=new DBConnection("SELECT name FROM players where position='"+position+"'");
 ResultSet rs=player.getData();
 
 try{
@@ -69,7 +69,7 @@ try{
     
     %>
     <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
+      <img class="img-rounded" src="image/<%out.print(name+".png"); %>">
       
     <div class="checkbox">
       <label><input type="checkbox" value=<%out.print(name);%> name="player" ></label>
