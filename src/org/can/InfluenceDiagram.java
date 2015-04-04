@@ -32,13 +32,13 @@ public class InfluenceDiagram {
 			
 			double[] aTacticAgreementDef = new double[2*length];
 			double[] aInjuryDef = new double[2*length];
-			double[] aPersonalAbilityDef = new double[5*length];
+			double[] aPersonalAbilityDef = new double[3*length];
 			for(int i=0; i<aPersonalAbilityDef.length; i++){
 				aPersonalAbilityDef[i] = 0;
 			}
 			//double[] aFutureGamePerformanceDef = {};
-			double[] aFutureGamePerformanceDef = new double[60];
-			for(int i=0; i<60; i++){
+			double[] aFutureGamePerformanceDef = new double[36];
+			for(int i=0; i<36; i++){
 				if((i+1)%3==0){
 					aFutureGamePerformanceDef[i] = 1-aFutureGamePerformanceDef[i-1]-aFutureGamePerformanceDef[i-2];
 				}
@@ -88,20 +88,14 @@ public class InfluenceDiagram {
 				aScandalDef[2*i] = p.getScandalWillAppearOdds();
 				aScandalDef[2*i+1] = p.getScandalWillNotAppearOdds();
 				String PA = p.getPersonalAbility();
-				if(PA.equals("Outstanding")){
-					aPersonalAbilityDef[5*i] = 1;
+				if(PA.equals("Excellent")){
+					aPersonalAbilityDef[3*i] = 1;
 				}
-				else if(PA.equals("Excellent")){
-					aPersonalAbilityDef[5*i+1] = 1;
-				}
-				else if (PA.equals("Good")){
-					aPersonalAbilityDef[5*i+2] = 1;
+				else if(PA.equals("Good")){
+					aPersonalAbilityDef[3*i+1] = 1;
 				}
 				else if (PA.equals("Average")){
-					aPersonalAbilityDef[5*i+3] = 1;
-				}
-				else if (PA.equals("Below_Average")){
-					aPersonalAbilityDef[5*i+4] = 1;
+					aPersonalAbilityDef[3*i+2] = 1;
 				}
 				
 			}					
@@ -114,11 +108,9 @@ public class InfluenceDiagram {
 			net.setOutcomeId("Injury", 0, "Yes");
 			net.setOutcomeId("Injury", 1, "No");
 			
-			net.setOutcomeId("Personal_Ability", 0, "Outstanding");
-			net.setOutcomeId("Personal_Ability", 1, "Excellent");
-			net.addOutcome("Personal_Ability", "Good");
+			net.setOutcomeId("Personal_Ability", 0, "Excellent");
+			net.setOutcomeId("Personal_Ability", 1, "Good");
 			net.addOutcome("Personal_Ability", "Average");
-			net.addOutcome("Personal_Ability", "Below_Average");
 
 			
 			net.setOutcomeId("Future_Game_Performance", 0, "Good");
