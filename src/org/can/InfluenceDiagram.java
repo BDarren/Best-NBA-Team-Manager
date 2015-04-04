@@ -109,7 +109,7 @@ public class InfluenceDiagram {
 			net.deleteOutcome("Player", 0);
 			
 			net.setOutcomeId("Tactic_Agreement", 0, "Good");
-			net.setOutcomeId("Tactic_Agreement", 1, "Bad");
+			net.setOutcomeId("Tactic_Agreement", 1, "Fair");
 			
 			net.setOutcomeId("Injury", 0, "Yes");
 			net.setOutcomeId("Injury", 1, "No");
