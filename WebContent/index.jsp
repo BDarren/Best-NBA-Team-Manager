@@ -69,7 +69,7 @@ try{
     
     %>
     <div class="col-md-4 text-center">
-      <img class="img-circle" src="http://placehold.it/140x140">
+      <img class="img-rounded" src="image/<%out.print(name+".png"); %>">
       
     <div class="checkbox">
       <label><input type="checkbox" value=<%out.print(name);%> name="player" ></label>

@@ -16,8 +16,8 @@ public class DBConnection {
 	try{Class.forName("com.mysql.jdbc.Driver").newInstance();}
 	catch(Exception e){System.out.print(e);}
 	try{
-	String uri="jdbc:mysql://localhost:3306/nbamanager";
-	con=DriverManager.getConnection(uri,"Darren","3268323Xp!!!");
+	String uri="jdbc:mysql://localhost:8889/NBA";
+	con=DriverManager.getConnection(uri,"can","626391");
 	sql=con.createStatement();
 	rs=sql.executeQuery(query);
 	}catch(SQLException e1){System.out.print(e1);}
