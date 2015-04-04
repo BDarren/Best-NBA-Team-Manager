@@ -23,15 +23,15 @@
 			<parents>Player</parents>
 			<probabilities>0.7 0.3 0.5 0.5</probabilities>
 		</cpt>
-		<deterministic id="Ability">
+		<cpt id="Ability">
 			<state id="Outstanding" />
 			<state id="Excellent" />
 			<state id="Good" />
 			<state id="Average" />
 			<state id="Below_Average" />
 			<parents>Player</parents>
-			<resultingstates>Outstanding Excellent</resultingstates>
-		</deterministic>
+			<probabilities>1 0 0 0 0 0 1 0 0 0</probabilities>
+		</cpt>
 		<cpt id="on_game">
 			<state id="Good" />
 			<state id="Fair" />
@@ -40,8 +40,8 @@
 			<probabilities>0 0 1 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
 		</cpt>
 		<cpt id="commercial">
-			<state id="State0" />
-			<state id="State1" />
+			<state id="High" />
+			<state id="Average" />
 			<parents>Player</parents>
 			<probabilities>0.5 0.5 0.4 0.6</probabilities>
 		</cpt>
@@ -50,7 +50,7 @@
 			<state id="Fair" />
 			<state id="Poor" />
 			<parents>scandal commercial</parents>
-			<probabilities>1 0 0 0 1 0 1 0 0 0 0 1</probabilities>
+			<probabilities>0.7 0.2 0.1 0.05 0.1 0.85 0.8 0.15 0.05 0.25 0.5 0.25</probabilities>
 		</cpt>
 		<utility id="value">
 			<parents>on_game society</parents>
@@ -125,8 +125,18 @@
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="20" />
-				<position>325 123 528 216</position>
+				<position>318 120 521 213</position>
 			</node>
+			<textbox>
+				<caption>Future Game Performance:\ngood: 99\nfair: 80\npoor: 65</caption>
+				<font color="000000" name="Arial" size="22" />
+				<position>827 376 1182 508</position>
+			</textbox>
+			<textbox>
+				<caption>Future Social Performance:\ngood: 99\nfair: 80\npoor: 65</caption>
+				<font color="000000" name="Arial" size="22" />
+				<position>1209 373 1564 505</position>
+			</textbox>
 		</genie>
 	</extensions>
 </smile>
