@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Unnamed" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Attendance">
+			<state id="good" />
+			<state id="poor" />
+			<probabilities>0.8656509695290858 0.1343490304709141</probabilities>
+		</cpt>
+		<cpt id="Tacit_Agreement">
+			<state id="good" />
+			<state id="poor" />
+			<probabilities>0.3365650969529086 0.6634349030470914</probabilities>
+		</cpt>
+		<cpt id="PER">
+			<state id="excellent" />
+			<state id="fair" />
+			<state id="poor" />
+			<probabilities>0.09787626962142199 0.4358264081255771 0.466297322253001</probabilities>
+		</cpt>
+		<cpt id="Next_PER">
+			<state id="excellent" />
+			<state id="fair" />
+			<state id="poor" />
+			<parents>Attendance Tacit_Agreement PER</parents>
+			<probabilities>0.4814814814814814 0.4814814814814814 0.03703703703703704 0.07575757575757576 0.5303030303030303 0.3939393939393939 0.005847953216374269 0.1988304093567251 0.7953216374269005 0.6231884057971014 0.3623188405797101 0.0144927536231884 0.1168384879725086 0.5601374570446736 0.3230240549828178 0.003787878787878788 0.2196969696969697 0.7765151515151515 0.4444444444444444 0.4444444444444444 0.1111111111111111 0.08333333333333333 0.8333333333333334 0.08333333333333333 0.03333333333333333 0.3333333333333334 0.6333333333333333 0.08333333333333333 0.8333333333333334 0.08333333333333333 0.2083333333333333 0.4583333333333333 0.3333333333333333 0.0196078431372549 0.1372549019607843 0.8431372549019608</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5219.0" name="future_per" faultnameformat="nodestate">
+			<node id="Attendance">
+				<name>Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>278 300 350 348</position>
+			</node>
+			<node id="Tacit_Agreement">
+				<name>Tacit Agreement</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>353 250 425 298</position>
+			</node>
+			<node id="PER">
+				<name>PER</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>428 300 500 348</position>
+			</node>
+			<node id="Next_PER">
+				<name>Next PER</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>353 350 425 398</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
