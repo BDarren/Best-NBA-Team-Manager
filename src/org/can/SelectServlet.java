@@ -50,7 +50,7 @@ public class SelectServlet extends HttpServlet {
 				ResultSet info=playerInfo.getData();
 				try {
 					while(info.next()){
-						Player person=new Player(info.getString("name"),info.getDouble("injuryOdds"),info.getDouble("tacticGoodOdds"),info.getDouble("PAE"),info.getDouble("PAG"),info.getDouble("commercialEventsRateHighOdds"),info.getDouble("scandalWillAppearOdds"),info.getString("position"));
+						Player person=new Player(info.getString("name"),info.getDouble("AttendenceOdds"),info.getDouble("tacticGoodOdds"),info.getDouble("PAE"),info.getDouble("PAG"),info.getDouble("commercialEventsRateHighOdds"),info.getDouble("scandalWillAppearOdds"),info.getString("position"));
 						playerList.add(person);
 						//System.out.println(person.getNotInjueryOdds());
 					}

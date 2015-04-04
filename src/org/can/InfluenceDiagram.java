@@ -53,7 +53,7 @@ public class InfluenceDiagram {
 			
 			double[] aCommercialEventDef = new double[2*length];
 			double[] aScandalDef = new double[2*length];
-			double[] aFutureSocialPerformanceDef = {};
+			double[] aFutureSocialPerformanceDef = {0.7,0.2,0.1,0.05,0.1,0.85,0.8,0.15,0.05,0.25,0.5,0.25};
 			/*double[] aFutureSocialPerformanceDef = new double[12];
 			for(int i=0; i<12; i++){
 				if((i+1)%3==0){
@@ -63,9 +63,9 @@ public class InfluenceDiagram {
 					aFutureSocialPerformanceDef[i] = generator.nextDouble()*(0.5);
 				}
 			}*/
-			double goodValueSum = 4000;
-			double fairValueSum = 2000;
-			double poorValueSum = 1000;
+			double goodValueSum = 198;
+			double fairValueSum = 160;
+			double poorValueSum = 130;
 			double goodGP = goodValueSum*weight;
 			double goodSP = goodValueSum*(1-weight);
 			double fairGP = fairValueSum*weight;

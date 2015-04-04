@@ -52,10 +52,18 @@
 			<parents>scandal commercial</parents>
 			<probabilities>0.7 0.2 0.1 0.05 0.1 0.85 0.8 0.15 0.05 0.25 0.5 0.25</probabilities>
 		</cpt>
-		<utility id="value">
-			<parents>on_game society</parents>
-			<utilities>0 0 0 0 0 0 0 0 0</utilities>
+		<utility id="Copy_of_Node1">
+			<parents>on_game</parents>
+			<utilities>99 80 65</utilities>
 		</utility>
+		<utility id="Node1">
+			<parents>society</parents>
+			<utilities>99 80 65</utilities>
+		</utility>
+		<mau id="value">
+			<parents>Copy_of_Node1 Node1</parents>
+			<weights>0.8 0.2</weights>
+		</mau>
 	</nodes>
 	<extensions>
 		<genie version="1.0" app="GeNIe 2.0.5494.1" name="Network1" faultnameformat="nodestate">
@@ -64,7 +72,7 @@
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="20" />
-				<position>357 369 684 449</position>
+				<position>344 463 671 543</position>
 			</node>
 			<node id="Player">
 				<name>Player</name>
@@ -130,13 +138,27 @@
 			<textbox>
 				<caption>Future Game Performance:\ngood: 99\nfair: 80\npoor: 65</caption>
 				<font color="000000" name="Arial" size="22" />
-				<position>827 376 1182 508</position>
+				<position>798 379 1153 511</position>
 			</textbox>
 			<textbox>
 				<caption>Future Social Performance:\ngood: 99\nfair: 80\npoor: 65</caption>
 				<font color="000000" name="Arial" size="22" />
 				<position>1209 373 1564 505</position>
 			</textbox>
+			<node id="Node1">
+				<name>Node1</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>525 374 725 438</position>
+			</node>
+			<node id="Copy_of_Node1">
+				<name>Copy of Node1</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>303 377 503 441</position>
+			</node>
 		</genie>
 	</extensions>
 </smile>

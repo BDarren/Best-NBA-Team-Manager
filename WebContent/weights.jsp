@@ -75,9 +75,10 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th> InjuryOdds</th>
+        <th>InjuryOdds</th>
         <th>TacticGoodOdds</th>
-        <th>PersonalAbility</th>
+        <th>PersonalAbilityExcellent</th>
+        <th>PersonalAbilityGood</th>
         <th>CommercialEventsRateHighOdds</th>
         <th>ScandalWillAppearOdds</th>
         <th>Position</th>
@@ -93,7 +94,8 @@
         <td><%=e.getName() %></td>
         <td><%=e.getInjuryOdds() %></td>
         <td><%=e.getTacticGoodOdds() %></td>
-        <td><%=e.getPersonalAbility() %></td>
+        <td><%=e.getPersonalAbilityEOdds() %></td>
+        <td><%=e.getPersonalAbilityGOdds() %></td>
         <td><%=e.getCommercialEventRateHighOdds() %></td>
         <td><%=e.getScandalWillAppearOdds() %></td>
         <td><%=e.getPosition() %></td>
