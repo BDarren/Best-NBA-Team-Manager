@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Unnamed" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="V10_11_Attendance">
+			<state id="yes" />
+			<state id="no" />
+			<probabilities>0.06043956043956045 0.9395604395604397</probabilities>
+		</cpt>
+		<cpt id="V11_12_Attendance">
+			<state id="yes" />
+			<state id="no" />
+			<parents>V10_11_Attendance</parents>
+			<probabilities>0.5833333333333333 0.4166666666666666 0.1802325581395349 0.8197674418604651</probabilities>
+		</cpt>
+		<cpt id="V12_13_Attendance">
+			<state id="yes" />
+			<state id="no" />
+			<parents>V10_11_Attendance V11_12_Attendance</parents>
+			<probabilities>0.375 0.625 0.5 0.5 0.28125 0.71875 0.1056338028169014 0.8943661971830986</probabilities>
+		</cpt>
+		<cpt id="V13_14_Attendance">
+			<state id="yes" />
+			<state id="no" />
+			<parents>V10_11_Attendance V11_12_Attendance V12_13_Attendance</parents>
+			<probabilities>0.25 0.75 0.5 0.5 0.75 0.25 0.25 0.75 0.3 0.7000000000000001 0.2083333333333333 0.7916666666666666 0.1875 0.8125 0.1015625 0.8984375</probabilities>
+		</cpt>
+		<cpt id="V14_15_Attendance">
+			<state id="yes" />
+			<state id="no" />
+			<parents>V10_11_Attendance V11_12_Attendance V12_13_Attendance V13_14_Attendance</parents>
+			<probabilities>0.5 0.5 0.25 0.75 0.25 0.75 0.75 0.25 0.75 0.25 0.5 0.5 0.5 0.5 0.25 0.75 0.75 0.25 0.125 0.875 0.1666666666666667 0.8333333333333333 0.25 0.75 0.75 0.25 0.07142857142857143 0.9285714285714285 0.2142857142857143 0.7857142857142857 0.25 0.75</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5494.1" name="injury" faultnameformat="nodestate">
+			<node id="V10_11_Attendance">
+				<name>V10_11_Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>256 83 328 131</position>
+			</node>
+			<node id="V11_12_Attendance">
+				<name>V11_12_Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>286 230 358 278</position>
+			</node>
+			<node id="V12_13_Attendance">
+				<name>V12_13_Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>459 250 531 298</position>
+			</node>
+			<node id="V13_14_Attendance">
+				<name>V13_14_Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>532 104 604 152</position>
+			</node>
+			<node id="V14_15_Attendance">
+				<name>V14_15_Attendance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>394 10 466 58</position>
+			</node>
+			<textbox>
+				<caption>Input file: injury.csv\nData rows: 90\n\nLearning algorithm: Bayesian Search\nElapsed time: 0.015 seconds\nBest score in iteration 0: -291.738\n\nAlgorithm parameters:\nMax parent count: 8\nIterations: 20\nSample size: 50\nSeed: 0\nLink probability: 0.1\nPrior link probability: 0.001\nMax search time: 0\nUse accuracy as score: no\nBackground knowledge was provided:\n  forced arcs: 10\n  nodes assigned to tiers: 5</caption>
+				<font color="000000" name="Arial" size="8" />
+				<position>10 78 197 344</position>
+			</textbox>
+		</genie>
+	</extensions>
+</smile>
