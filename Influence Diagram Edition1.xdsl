@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<decision id="Player">
+			<state id="James" />
+			<state id="Bryant" />
+		</decision>
+		<cpt id="scandal">
+			<state id="Will_Appear" />
+			<state id="Wil_Not_Appear" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Injury">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Player</parents>
+			<probabilities>0.2857142857142858 0.7142857142857142 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Tacit_agree">
+			<state id="Good" />
+			<state id="Bad" />
+			<parents>Player</parents>
+			<probabilities>0.7 0.3 0.5 0.5</probabilities>
+		</cpt>
+		<deterministic id="Ability">
+			<state id="Excellent" />
+			<state id="Good" />
+			<state id="Average" />
+			<parents>Player</parents>
+			<resultingstates>Good Excellent</resultingstates>
+		</deterministic>
+		<cpt id="on_game">
+			<state id="Good" />
+			<state id="Fair" />
+			<state id="Poor" />
+			<parents>Tacit_agree Injury Ability</parents>
+			<probabilities>0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0 0 1 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+		</cpt>
+		<cpt id="commercial">
+			<state id="Rate_High" />
+			<state id="Rate_Low" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="society">
+			<state id="Good" />
+			<state id="Fair" />
+			<state id="Poor" />
+			<parents>scandal commercial</parents>
+			<probabilities>1 0 0 0 1 0 1 0 0 0 0 1</probabilities>
+		</cpt>
+		<utility id="value">
+			<parents>on_game society</parents>
+			<utilities>1000 500 200 500 200 100 200 100 50</utilities>
+		</utility>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5494.1" name="Network1" faultnameformat="nodestate">
+			<node id="value">
+				<name>Total Expected Value</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>361 369 688 449</position>
+			</node>
+			<node id="Player">
+				<name>Player</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>472 30 578 87</position>
+			</node>
+			<node id="Injury">
+				<name>Injury</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>184 82 313 142</position>
+			</node>
+			<textbox>
+				<caption>Choosing SF(age &gt; 30) for Heat</caption>
+				<font color="000000" name="Arial" size="16" />
+				<position>73 33 372 57</position>
+			</textbox>
+			<node id="scandal">
+				<name>scandal</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>753 105 911 171</position>
+			</node>
+			<node id="on_game">
+				<name>Future Game Performance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>244 250 495 356</position>
+			</node>
+			<node id="society">
+				<name>Future Social Performance</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>563 251 816 357</position>
+			</node>
+			<node id="Tacit_agree">
+				<name>Tacit Agreement</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>45 159 250 253</position>
+			</node>
+			<node id="commercial">
+				<name>Commercial Events</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>535 121 762 210</position>
+			</node>
+			<node id="Ability">
+				<name>Personal Ability</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="20" />
+				<position>331 119 534 212</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
