@@ -4,16 +4,18 @@ public class Player {
 	private String name;
 	private double injuryOdds;
 	private double tacticGoodOdds;
-	private String personalAbility;
+	private double personalAbilityE;
+	private double personalAbilityG;
 	private double commercialEventsRateHighOdds;
 	private double scandalWillAppearOdds;
 	private String position;
 	
-	public Player(String name, double io, double tgo, String pa, double cerh, double swao, String po){
+	public Player(String name, double io, double tgo, double pae, double pag, double cerh, double swao, String po){
 		this.name = name;
 		this.injuryOdds = io;
 		this.tacticGoodOdds = tgo;
-		this.personalAbility = pa;
+		this.personalAbilityE = pae;
+		this.personalAbilityG = pag;
 		this.commercialEventsRateHighOdds = cerh;
 		this.scandalWillAppearOdds = swao;
 		this.position = po;
@@ -39,8 +41,16 @@ public class Player {
 		return 1-this.tacticGoodOdds;
 	}
 	
-	public String getPersonalAbility(){
-		return this.personalAbility;
+	public double getPersonalAbilityEOdds(){
+		return this.personalAbilityE;
+	}
+	
+	public double getPersonalAbilityGOdds(){
+		return this.personalAbilityG;
+	}
+	
+	public double getPersonalAbilityAOdds(){
+		return 1-this.personalAbilityE-this.personalAbilityG;
 	}
 	
 	public double getCommercialEventRateHighOdds(){
