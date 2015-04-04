@@ -45,24 +45,25 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
+             <div class="item active">
+                <div class="fill" style="background-image:url('http://www.sportsintofaith.com/isfs/wp-content/uploads/2014/01/Basketball-Court1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Best NBA Manager</h2>
+                </div>
+            </div>
+            <div class="item">
                 <div class="fill" style="background-image:url('http://d13beo3f7vpmvd.cloudfront.net/wp-content/uploads/2015/02/reddit-nba.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2>Best NBA Manager</h2>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('http://wallpic.us/wp-content/uploads/2014/04/Basketball-NBA-Logo-Wallpaper-Desktop.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2>Best NBA Manager</h2>
                 </div>
             </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://www.sportsintofaith.com/isfs/wp-content/uploads/2014/01/Basketball-Court1.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
+
         </div>
 
         <!-- Controls -->
