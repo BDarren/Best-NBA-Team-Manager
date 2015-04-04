@@ -26,6 +26,9 @@ public class InfluenceDiagram {
 			net.addNode(Network.NodeType.Cpt, "Scandal");
 			net.addNode(Network.NodeType.Cpt, "Future_Social_Performance");
 			
+			net.addNode(Network.NodeType.Table, "Game_Performance_Value");
+			net.addNode(Network.NodeType.Table, "Social_Performance_Value");
+			
 			net.addNode(Network.NodeType.Table, "Total_Expected_Value");
 			
 			int length = playerList.size();
@@ -63,20 +66,11 @@ public class InfluenceDiagram {
 					aFutureSocialPerformanceDef[i] = generator.nextDouble()*(0.5);
 				}
 			}*/
-			double goodValueSum = 198;
-			double fairValueSum = 160;
-			double poorValueSum = 130;
-			double goodGP = goodValueSum*weight;
-			double goodSP = goodValueSum*(1-weight);
-			double fairGP = fairValueSum*weight;
-			double fairSP = fairValueSum*(1-weight);
-			double poorGP = poorValueSum*weight;
-			double poorSP = poorValueSum*(1-weight);
 
 			
 			
-			
-			double[] aTotalExpectedValueDef = {goodGP+goodSP,goodGP+fairSP,goodGP+poorSP,fairGP+goodSP,fairGP+fairSP,fairGP+poorSP,poorGP+goodSP,poorGP+fairSP,poorGP+poorSP};
+			double[] aGameExpectedValueDef = {99,80,65};
+			double[] aSocialExpectedValueDef = {99,80,65};
 			
 			Player p;
 			
@@ -91,9 +85,9 @@ public class InfluenceDiagram {
 				aCommercialEventDef[2*i+1] = p.getCommercialEventRateLowOdds();
 				aScandalDef[2*i] = p.getScandalWillAppearOdds();
 				aScandalDef[2*i+1] = p.getScandalWillNotAppearOdds();
-				aPersonalAbilityDef[2*i] = p.getPersonalAbilityEOdds();
-				aPersonalAbilityDef[2*i+1] = p.getPersonalAbilityGOdds();
-				aPersonalAbilityDef[2*i+2] = p.getPersonalAbilityAOdds();				
+				aPersonalAbilityDef[3*i] = p.getPersonalAbilityEOdds();
+				aPersonalAbilityDef[3*i+1] = p.getPersonalAbilityGOdds();
+				aPersonalAbilityDef[3*i+2] = p.getPersonalAbilityAOdds();				
 			}					
 			net.deleteOutcome("Player", 0);
 			net.deleteOutcome("Player", 0);
@@ -146,9 +140,14 @@ public class InfluenceDiagram {
 			net.addArc("Scandal", "Future_Social_Performance");
 			net.setNodeDefinition("Future_Social_Performance", aFutureSocialPerformanceDef);
 			
-			net.addArc("Future_Game_Performance", "Total_Expected_Value");
-			net.addArc("Future_Social_Performance", "Total_Expected_Value");
-			net.setNodeDefinition("Total_Expected_Value", aTotalExpectedValueDef);
+			net.addArc("Future_Game_Performance", "Game_Performance_Value");
+			net.setNodeDefinition("Game_Performance_Value", aGameExpectedValueDef);
+			net.addArc("Future_Social_Performance", "Social_Performance_Value");
+			net.setNodeDefinition("Social_Performance_Value", aSocialExpectedValueDef);
+			
+			//net.addArc("Game_Performance_Value", "Total_Expected_Value");
+			//net.addArc("Social_Performance_Value", "Total_Expected_Value");
+			//net.setNodeDefinition("Total_Expected_Value", aTotalExpectedValueDef);
 			
 			//net.writeFile("Influence Diagram auto.xdsl");
 			
@@ -156,7 +155,9 @@ public class InfluenceDiagram {
 			
 			for (int i = 0; i < net.getOutcomeCount("Player"); i++) {
 				String parentOutcomeId = net.getOutcomeId("Player", i);
-				double expectedUtility = net.getNodeValue("Total_Expected_Value")[i];
+				double GameexpectedUtility = net.getNodeValue("Game_Performance_Value")[i];
+				double SocialexpectedUtility = net.getNodeValue("Social_Performance_Value")[i];
+				double expectedUtility = GameexpectedUtility*weight+SocialexpectedUtility*(1-weight);
 				res.put(parentOutcomeId, expectedUtility);
 				     
 				//System.out.print("  - \"Player\" = " + parentOutcomeId + ": ");
