@@ -17,7 +17,7 @@ public class DBConnection {
 	catch(Exception e){System.out.print(e);}
 	try{
 	String uri="jdbc:mysql://localhost:3306/nbamanager";
-	con=DriverManager.getConnection(uri,"Darren","3268323Xp!!!");
+	con=DriverManager.getConnection(uri,"Darren","123");
 	sql=con.createStatement();
 	rs=sql.executeQuery(query);
 	}catch(SQLException e1){System.out.print(e1);}
