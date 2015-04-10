@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Unnamed" numsamples="1000" discsamples="10000">
+	<nodes>
+		<decision id="Player">
+			<state id="Lebron" />
+			<state id="kobe" />
+		</decision>
+		<cpt id="Tactic_Agreement">
+			<state id="Good" />
+			<state id="Fair" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Attendence">
+			<state id="Yes" />
+			<state id="No" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Personal_Ability">
+			<state id="Excellent" />
+			<state id="Good" />
+			<state id="Average" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.3 0.2 0.5 0.3 0.2</probabilities>
+		</cpt>
+		<cpt id="Future_Game_Performance">
+			<state id="Good" />
+			<state id="Fair" />
+			<state id="Poor" />
+			<parents>Tactic_Agreement Attendence Personal_Ability</parents>
+			<probabilities>0.4814814814814814 0.4814814814814814 0.03703703703703704 0.07575757575757576 0.5303030303030303 0.3939393939393939 0.005847953216374269 0.1988304093567251 0.7953216374269005 0.6231884057971014 0.3623188405797101 0.0144927536231884 0.1168384879725086 0.5601374570446736 0.3230240549828178 0.003787878787878788 0.2196969696969697 0.7765151515151515 0.4444444444444444 0.4444444444444444 0.1111111111111111 0.08333333333333333 0.8333333333333334 0.08333333333333333 0.03333333333333333 0.3333333333333334 0.6333333333333333 0.08333333333333333 0.8333333333333334 0.08333333333333333 0.2083333333333333 0.4583333333333333 0.3333333333333333 0.0196078431372549 0.1372549019607843 0.8431372549019608</probabilities>
+		</cpt>
+		<cpt id="Commercial_Event">
+			<state id="Rate_High" />
+			<state id="Rate_Low" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Scandal">
+			<state id="Will_Appear" />
+			<state id="Will_Not_Appear" />
+			<parents>Player</parents>
+			<probabilities>0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Future_Social_Performance">
+			<state id="Good" />
+			<state id="Fair" />
+			<state id="Poor" />
+			<parents>Commercial_Event Scandal</parents>
+			<probabilities>0.7 0.2 0.1 0.05 0.1 0.85 0.8 0.15 0.05 0.25 0.5 0.25</probabilities>
+		</cpt>
+		<utility id="Game_Performance_Value">
+			<parents>Future_Game_Performance</parents>
+			<utilities>99 80 65</utilities>
+		</utility>
+		<utility id="Social_Performance_Value">
+			<parents>Future_Social_Performance</parents>
+			<utilities>99 80 65</utilities>
+		</utility>
+		<utility id="Total_Expected_Value">
+			<utilities>0</utilities>
+		</utility>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="SMILE Nov  5 2014" name="Unnamed" faultnameformat="nodestate">
+			<node id="Player">
+				<name>Player</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Tactic_Agreement">
+				<name>Tactic_Agreement</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Attendence">
+				<name>Attendence</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Personal_Ability">
+				<name>Personal_Ability</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Future_Game_Performance">
+				<name>Future_Game_Performance</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Commercial_Event">
+				<name>Commercial_Event</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Scandal">
+				<name>Scandal</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Future_Social_Performance">
+				<name>Future_Social_Performance</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Game_Performance_Value">
+				<name>Game_Performance_Value</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Social_Performance_Value">
+				<name>Social_Performance_Value</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+			<node id="Total_Expected_Value">
+				<name>Total_Expected_Value</name>
+				<interior color="e5f6f7" />
+				<outline color="0000bb" />
+				<font color="000000" name="MS Sans Serif" size="8" />
+				<position>-38 -18 38 18</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

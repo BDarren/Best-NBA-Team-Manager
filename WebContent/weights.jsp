@@ -68,7 +68,7 @@
         
       </div>
     </div>
-<div class="container">
+<div class="container"> 
   <h2>Comparison</h2> 
   <form name="setWeight" action="Weight" method="post">        
   <table  id="example" class="table table-striped table-bordered">

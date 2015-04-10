@@ -72,7 +72,7 @@
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="20" />
-				<position>344 463 671 543</position>
+				<position>350 554 677 634</position>
 			</node>
 			<node id="Player">
 				<name>Player</name>
@@ -88,11 +88,6 @@
 				<font color="000000" name="Arial" size="20" />
 				<position>184 82 313 142</position>
 			</node>
-			<textbox>
-				<caption>Choosing SF(age &gt; 30) for Heat</caption>
-				<font color="000000" name="Arial" size="16" />
-				<position>73 33 372 57</position>
-			</textbox>
 			<node id="scandal">
 				<name>scandal</name>
 				<interior color="e5f6f7" />
@@ -146,18 +141,18 @@
 				<position>1209 373 1564 505</position>
 			</textbox>
 			<node id="Node1">
-				<name>Node1</name>
+				<name>Social Performance Value</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
-				<font color="000000" name="Arial" size="8" />
-				<position>525 374 725 438</position>
+				<font color="000000" name="Arial" size="20" />
+				<position>525 374 786 479</position>
 			</node>
 			<node id="Copy_of_Node1">
-				<name>Copy of Node1</name>
+				<name>Game Performance Value</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
-				<font color="000000" name="Arial" size="8" />
-				<position>303 377 503 441</position>
+				<font color="000000" name="Arial" size="20" />
+				<position>245 377 503 476</position>
 			</node>
 		</genie>
 	</extensions>
