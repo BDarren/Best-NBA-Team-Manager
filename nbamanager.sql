@@ -1,0 +1,58 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 13, 2015 at 03:58 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `nbamanager`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `players`
+--
+
+CREATE TABLE IF NOT EXISTS `players` (
+  `name` varchar(30) NOT NULL,
+  `AttendenceOdds` double(10,10) NOT NULL,
+  `tacticGoodOdds` double(10,10) NOT NULL,
+  `PAE` double(10,10) NOT NULL,
+  `PAG` double(10,10) NOT NULL,
+  `commercialEventsRateHighOdds` double(10,10) NOT NULL,
+  `scandalWillAppearOdds` double(10,10) NOT NULL,
+  `position` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `players`
+--
+
+INSERT INTO `players` (`name`, `AttendenceOdds`, `tacticGoodOdds`, `PAE`, `PAG`, `commercialEventsRateHighOdds`, `scandalWillAppearOdds`, `position`) VALUES
+('Chris_Paul', 0.5000000000, 0.9423076900, 0.7777777800, 0.1111111100, 0.9000000000, 0.3000000000, 'PG'),
+('Dirk_Nowitzki', 0.5000000000, 0.7500000000, 0.3333333300, 0.3333333300, 0.4000000000, 0.2000000000, 'PF'),
+('Dwight_Howard', 0.5000000000, 0.1022727300, 0.3333333300, 0.3333333300, 0.6000000000, 0.4000000000, 'C'),
+('Dwyane_Wade', 0.7500000000, 0.5000000000, 0.7777777800, 0.1111111100, 0.7000000000, 0.5000000000, 'SG'),
+('Kevin_Garnett', 0.5000000000, 0.8977272700, 0.0555555560, 0.2222222200, 0.3000000000, 0.2500000000, 'PF'),
+('Marcin_Gortat', 0.5000000000, 0.1022727300, 0.1111111100, 0.1111111100, 0.2000000000, 0.1000000000, 'C'),
+('Rajon_Rondo', 0.7500000000, 0.9423076900, 0.0555555560, 0.2222222200, 0.4000000000, 0.5000000000, 'PG'),
+('Rudy_Gay', 0.5000000000, 0.1022727300, 0.1111111100, 0.1111111100, 0.2000000000, 0.2000000000, 'SF'),
+('Kobe_Bryant', 0.2500000000, 0.1022727300, 0.3333333300, 0.3333333300, 0.6000000000, 0.5500000000, 'SG'),
+('LeBron_James', 0.5000000000, 0.9423076900, 0.7777777800, 0.1111111100, 0.9000000000, 0.5000000000, 'SF');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

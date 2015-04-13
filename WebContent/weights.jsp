@@ -75,7 +75,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>InjuryOdds</th>
+        <th>Attendence</th>
         <th>TacticGoodOdds</th>
         <th>PersonalAbilityExcellent</th>
         <th>PersonalAbilityGood</th>
